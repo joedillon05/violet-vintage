@@ -10,33 +10,34 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,400;1,6..96,700&family=Lora:ital,wght@0,400;0,600;1,400&family=Caveat:wght@500;700&family=Cinzel:wght@500;700&family=Anton&family=Abril+Fatface&family=Special+Elite&family=Oswald:wght@500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,400;1,6..96,700&family=Lora:ital,wght@0,400;0,600;1,400&family=Caveat:wght@500;700&family=Cinzel:wght@500;700&family=Special+Elite&display=swap">
 <style>
-/* Layout: a scrapbook spread on cream satin. Each section is a different paper pasted in,
-   held with washi tape, stitches, pins and hang tags. One ransom-note headline per section,
-   handwriting for anything personal, Didone caps for anything official. Single theme by choice:
-   it is a paper world, so it stays cream in dark mode too. */
+/* Layout: a dressmaker's studio. The ground is muslin with a visible weave, every section is a
+   different surface on the cutting table: the mat, a pinned toile, a rail of pattern envelopes,
+   a wall of embroidery hoops. Headlines are satin stitched, notes are tailor's chalk, labels are
+   woven. Single theme by choice: cloth stays cream in dark mode too. */
 :root{
   color-scheme:light;
-  --paper:#F7F1E6; --paper-2:#EFE4D0; --tissue:#F4EBDA; --kraft:#CDAB7C;
+  --muslin:#F3EBDB; --muslin-2:#EADFC9; --tissue:#F6EEDC; --kraft:#CDAB7C; --cream:#FBF6EA;
   --ink:#201A2B; --ink-soft:#4F4660; --thread:#FBF5E8;
-  --violet:#5B33A8; --violet-deep:#3B1F78; --lilac:#CDB9EA; --lilac-wash:#E9DFF6; --lilac-mid:#A99CC7;
+  --violet:#5B33A8; --violet-deep:#3B1F78; --violet-light:#8A66D1; --lilac:#CDB9EA; --lilac-wash:#E9DFF6; --lilac-mid:#A99CC7;
   --gold:#D9A421; --mustard:#E6B84A; --rose:#E9B3AB; --rose-wash:#F5E0DB; --rose-deep:#C96B72;
   --brick:#B4463B; --teal:#2F7D6B; --teal-wash:#D7E8E1; --navy:#2C4B7E; --denim:#3A5B8B; --oxblood:#6B1E2B;
+  --wood:#B98A52; --wood-light:#D9B37F; --wood-dark:#7A5A2E; --mat:#2E6B5E; --brass:#C9A24D;
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 .32 0 0 0 0 .24 0 0 0 0 .12 0 0 0 .11 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --weave:repeating-linear-gradient(0deg,rgba(120,95,60,.06) 0 1px,transparent 1px 3px),repeating-linear-gradient(90deg,rgba(120,95,60,.06) 0 1px,transparent 1px 3px);
   --font-display:'Bodoni Moda',Didot,'Times New Roman',serif;
   --font-body:'Lora',Georgia,serif;
   --font-script:'Caveat','Bradley Hand','Comic Sans MS',cursive;
   --font-caps:'Cinzel','Trajan Pro','Times New Roman',serif;
+  --font-type:'Special Elite','Courier New',monospace;
   --gutter-l:max(16px,env(safe-area-inset-left,0px));
   --gutter-r:max(16px,env(safe-area-inset-right,0px));
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-body);font-size:17px;line-height:1.6;overflow-x:hidden;
-  background-image:
-    radial-gradient(circle at 12% 8%, rgba(255,255,255,.7), transparent 40%),
-    radial-gradient(circle at 88% 92%, rgba(205,185,234,.18), transparent 45%);}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+body{margin:0;background-color:var(--muslin);background-image:var(--grain),var(--weave);color:var(--ink);font-family:var(--font-body);font-size:17px;line-height:1.6;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--muslin)}
 img{max-width:100%;display:block}
 a{color:inherit}
 h1,h2,h3{margin:0;text-wrap:balance}
@@ -45,6 +46,7 @@ p{margin:0}
 section{position:relative;padding-block:clamp(56px,8vw,100px)}
 section[id]{scroll-margin-top:96px}
 .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.cloth{background-color:var(--muslin);background-image:var(--grain),var(--weave)}
 
 /* type roles */
 .eyebrow{font-family:var(--font-caps);font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--violet-deep)}
@@ -52,31 +54,33 @@ section[id]{scroll-margin-top:96px}
 .script{font-family:var(--font-script);font-size:1.45rem;line-height:1.3;color:var(--ink-soft)}
 .lede{font-size:1.12rem;max-width:34em}
 .ph{color:var(--ink-soft)}
-.sec-head{display:grid;gap:14px;max-width:760px;margin-bottom:clamp(28px,4vw,48px)}
+.sec-head{display:grid;gap:14px;max-width:760px;margin-bottom:clamp(28px,4vw,48px);justify-items:start}
 .sec-head .note{font-size:1.05rem;max-width:36em}
+.run{display:block;width:140px;height:3px;border-radius:2px;background:repeating-linear-gradient(90deg,var(--violet) 0 12px,transparent 12px 19px)}
 
-/* ransom note headlines, built by script from plain text */
-.ransom{display:block;line-height:1.1;text-transform:uppercase;font-family:var(--font-display);font-weight:700;letter-spacing:0}
-h1.ransom{font-size:clamp(2.1rem,6.4vw,4.9rem)}
-h2.ransom{font-size:clamp(1.55rem,4.4vw,3.3rem)}
-.rw{white-space:nowrap;display:inline-block}
-.rs{display:inline-block;width:.38em}
-.rl{display:inline-block;padding:.05em .15em .02em;margin:.08em .035em;line-height:1;position:relative;
-  transform:rotate(var(--r)) translateY(var(--y));box-shadow:1px 2px 0 rgba(32,26,43,.22)}
-.f0{font-family:'Anton',Impact,'Arial Narrow',sans-serif;font-weight:400}
-.f1{font-family:'Abril Fatface',Georgia,serif;font-weight:400}
-.f2{font-family:var(--font-display);font-weight:700}
-.f3{font-family:'Special Elite','Courier New',monospace;font-weight:400}
-.f4{font-family:'Oswald','Arial Narrow',sans-serif;font-weight:500}
-.f5{font-family:var(--font-display);font-style:italic;font-weight:700}
-.p0{background:var(--mustard);color:var(--ink)}
-.p1{background:var(--navy);color:var(--paper)}
-.p2{background:var(--rose);color:var(--ink)}
-.p3{background:var(--teal);color:var(--paper)}
-.p4{background:#F3E8D5;color:var(--brick)}
-.p5{background:var(--brick);color:var(--paper)}
-.p6{background:#FFFDF8;color:var(--ink);outline:1px solid rgba(32,26,43,.14)}
-.p7{background:var(--lilac);color:var(--violet-deep)}
+/* satin stitched headlines: thread stripes clipped to the letterforms, a dark outline, a raised shadow */
+.stitched{font-family:var(--font-display);font-weight:700;font-style:italic;line-height:1.08;letter-spacing:.01em;
+  --t1:var(--violet);--t2:var(--violet-light);--t3:var(--violet-deep);
+  color:transparent;background:repeating-linear-gradient(112deg,var(--t1) 0 2px,var(--t2) 2px 4px);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-stroke:.6px var(--t3);
+  filter:drop-shadow(1px 1px 0 rgba(255,255,255,.55)) drop-shadow(0 3px 3px rgba(32,26,43,.22))}
+h1.stitched{font-size:clamp(2.4rem,6.6vw,5rem)}
+h2.stitched{font-size:clamp(1.8rem,4.6vw,3.4rem)}
+.stitched.gold{--t1:#C9951A;--t2:#E8BE55;--t3:#8a6410}
+.stitched.rose{--t1:#C96B72;--t2:#E9A0A6;--t3:#8f3f47}
+.stitched.teal{--t1:#2F7D6B;--t2:#5BA893;--t3:#1f5a4c}
+.stitched.cream{--t1:#EFE2C6;--t2:#FFFBF2;--t3:#b9a47c;filter:drop-shadow(0 3px 4px rgba(0,0,0,.35))}
+
+/* tailor's chalk */
+.chalk{font-family:var(--font-script);color:var(--violet-deep);letter-spacing:.01em;text-shadow:0 0 1px rgba(91,51,168,.45);line-height:1.2}
+.chalk.white{color:#FFFDF8;text-shadow:0 0 1.5px rgba(255,255,255,.75)}
+
+/* woven labels */
+.woven{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-caps);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--violet-deep);
+  background:var(--cream);padding:9px 14px;border-left:7px solid rgba(32,26,43,.14);border-right:7px solid rgba(32,26,43,.14);
+  outline:1px dashed var(--violet);outline-offset:-5px;box-shadow:0 2px 4px rgba(32,26,43,.15);text-decoration:none;white-space:nowrap}
+.woven.dark{background:var(--violet-deep);color:var(--thread);outline-color:var(--lilac)}
+.woven img{width:14px;height:14px}
 
 /* buttons as sewn-on patches */
 .btn{display:inline-block;font-family:var(--font-caps);font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;
@@ -89,7 +93,7 @@ h2.ransom{font-size:clamp(1.55rem,4.4vw,3.3rem)}
 .btn.ghost{background:transparent;color:var(--violet-deep);outline-color:var(--violet);box-shadow:none;border:2px solid var(--violet)}
 :focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 
-/* watercolor washes */
+/* dye washes, the watercolor of the logo soaked into the cloth */
 .wash{position:absolute;border-radius:50%;filter:url(#wc);mix-blend-mode:multiply;pointer-events:none;z-index:0}
 .wash.lilac{background:radial-gradient(closest-side,rgba(205,185,234,.95),rgba(205,185,234,.45) 62%,rgba(205,185,234,0))}
 .wash.rose{background:radial-gradient(closest-side,rgba(233,179,171,.9),rgba(233,179,171,.4) 62%,rgba(233,179,171,0))}
@@ -97,15 +101,12 @@ h2.ransom{font-size:clamp(1.55rem,4.4vw,3.3rem)}
 .wash.teal{background:radial-gradient(closest-side,rgba(47,125,107,.55),rgba(47,125,107,.22) 62%,rgba(47,125,107,0))}
 .wash.violet{background:radial-gradient(closest-side,rgba(91,51,168,.6),rgba(91,51,168,.25) 62%,rgba(91,51,168,0))}
 
-/* washi tape */
-.tape{position:absolute;width:118px;height:30px;opacity:.88;box-shadow:0 1px 2px rgba(0,0,0,.12);pointer-events:none;
-  clip-path:polygon(0 0,3% 22%,0 48%,4% 72%,1% 100%,100% 100%,97% 78%,100% 50%,96% 22%,100% 0)}
-.tape.stripe{background:repeating-linear-gradient(45deg,var(--rose) 0 7px,#f8dcd6 7px 14px)}
-.tape.lilacdot{background:radial-gradient(circle,var(--violet) 0 2.5px,transparent 3px) 0 0/11px 11px,var(--lilac)}
-.tape.goldgrid{background:repeating-linear-gradient(0deg,rgba(32,26,43,.35) 0 1px,transparent 1px 8px),repeating-linear-gradient(90deg,rgba(32,26,43,.35) 0 1px,transparent 1px 8px),var(--mustard)}
-.tape.tealplain{background:var(--teal-wash)}
+/* seam line between surfaces: a running stitch over a tracing wheel line */
+.seam{height:18px;max-width:1180px;margin:0 auto;padding:0 var(--gutter-r) 0 var(--gutter-l);background-origin:content-box;background-clip:content-box;
+  background-image:repeating-linear-gradient(90deg,rgba(32,26,43,.5) 0 10px,transparent 10px 17px),repeating-linear-gradient(90deg,rgba(32,26,43,.3) 0 2px,transparent 2px 7px);
+  background-size:100% 2px,100% 2px;background-position:0 5px,0 13px;background-repeat:no-repeat}
 
-/* stitched outline for any paper patch */
+/* stitched outline for anything sewn down */
 .stitch{outline:2px dashed var(--thread);outline-offset:-8px}
 .stitch.dark{outline-color:rgba(32,26,43,.5)}
 
@@ -124,90 +125,108 @@ h2.ransom{font-size:clamp(1.55rem,4.4vw,3.3rem)}
 .tape-marquee img{width:18px;height:18px}
 @keyframes marquee{to{transform:translateX(-50%)}}
 
-/* nav */
-.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(247,241,230,.92);backdrop-filter:blur(6px);
+/* nav on a selvage edge */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(243,235,219,.93);backdrop-filter:blur(6px);
   border-bottom:2px dashed rgba(32,26,43,.35)}
 .nav .wrap{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:10px 24px;padding-block:10px}
 .nav nav{justify-self:center}
 .nav .logo img{height:58px;width:auto}
 .nav ul{list-style:none;margin:0;padding:0;display:flex;gap:4px 22px;flex-wrap:wrap}
 .nav li a{font-family:var(--font-caps);font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;padding:6px 2px}
-.nav li a:hover,.nav li a:focus-visible{text-decoration:underline wavy var(--violet);text-underline-offset:6px}
+.nav li a:hover,.nav li a:focus-visible{text-decoration:underline dashed var(--violet);text-decoration-thickness:2px;text-underline-offset:7px}
 .bag{position:relative;font-family:var(--font-caps);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;
-  background:#F3E8D5;padding:16px 14px 8px;clip-path:polygon(50% 0,100% 26%,100% 100%,0 100%,0 26%);box-shadow:none}
-.bag::before{content:"";position:absolute;top:5px;left:50%;width:7px;height:7px;margin-left:-3.5px;border-radius:50%;border:2px solid #8f8470;background:var(--paper)}
+  background:var(--cream);padding:16px 14px 8px;clip-path:polygon(50% 0,100% 26%,100% 100%,0 100%,0 26%);box-shadow:none}
+.bag::before{content:"";position:absolute;top:5px;left:50%;width:7px;height:7px;margin-left:-3.5px;border-radius:50%;border:2px solid #8f8470;background:var(--muslin)}
+.ticket{display:flex;justify-content:flex-end;max-width:1180px;margin:0 auto;padding:16px var(--gutter-r) 0 var(--gutter-l)}
+.ticket .woven{white-space:normal;text-align:right;font-size:.62rem;letter-spacing:.16em}
 
-/* hero */
-.hero{overflow:hidden;padding-block:clamp(40px,6vw,80px) clamp(56px,8vw,96px)}
-.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;position:relative;z-index:1}
+/* hero: the cutting table */
+.hero{overflow:hidden;padding-block:clamp(28px,4vw,60px) clamp(56px,8vw,96px)}
+.hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;position:relative;z-index:1}
 .hero-copy{display:grid;gap:22px;position:relative}
-.hero-copy .script{position:relative}
 .cta-row{display:flex;gap:16px 20px;flex-wrap:wrap;align-items:center}
-.collage{position:relative;min-height:560px}
-.polaroid{background:#FFFDF8;padding:12px 12px 44px;box-shadow:0 14px 30px rgba(32,26,43,.2),0 2px 4px rgba(32,26,43,.12);position:relative}
-.polaroid .photo{aspect-ratio:4/5;display:grid;place-items:center;overflow:hidden;position:relative}
-.polaroid .photo img{width:70%;height:auto}
-.polaroid .cap{position:absolute;left:14px;right:14px;bottom:10px;font-family:var(--font-script);font-size:1.25rem;color:var(--ink-soft);text-align:center;line-height:1.1}
-.hero-pol{position:absolute;right:4%;top:2%;width:min(360px,74%);transform:rotate(-4deg);z-index:3}
-.hero-pol .photo{background:linear-gradient(160deg,var(--lilac-wash),#f8ecd9 55%,var(--rose-wash))}
-.hero-pol .tape{top:-12px;left:-30px;transform:rotate(-14deg)}
-.hero-pol .tape.b{left:auto;right:-34px;top:auto;bottom:34px;transform:rotate(12deg)}
-.ring-badge{position:absolute;left:2%;bottom:4%;width:190px;height:190px;z-index:4;display:grid;place-items:center;filter:drop-shadow(0 6px 10px rgba(32,26,43,.2))}
-.ring-badge svg{position:absolute;inset:0;width:100%;height:100%;animation:spin 40s linear infinite}
-.ring-badge .disc{position:absolute;inset:0;border-radius:50%;background:#FFFDF8;outline:2px dashed var(--violet);outline-offset:-10px}
-.ring-badge img{width:46%;position:relative}
-@keyframes spin{to{transform:rotate(360deg)}}
-.stampmark{font-family:'Special Elite','Courier New',monospace;font-size:1.3rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brick);
-  border:3px double var(--brick);border-radius:4px;padding:.15em .55em;transform:rotate(-14deg);opacity:.85;display:inline-block;filter:url(#rough)}
-.hero .stampmark{position:absolute;right:0;bottom:24%;z-index:5}
-.hang{position:absolute;width:78px;padding:26px 8px 12px;background:#F3E8D5;color:var(--ink);font-family:var(--font-caps);font-size:.68rem;letter-spacing:.06em;text-align:center;line-height:1.3;
-  clip-path:polygon(50% 0,100% 22%,100% 100%,0 100%,0 22%);transform-origin:50% 0;animation:swing 4.5s ease-in-out infinite alternate;z-index:6;box-shadow:0 3px 6px rgba(0,0,0,.12)}
+.collage{position:relative;min-height:620px}
+.collage::after{content:"";position:absolute;left:0;right:0;bottom:1%;height:18px;background:radial-gradient(ellipse at center,rgba(32,26,43,.14),transparent 70%);z-index:0}
+.formwrap{position:absolute;right:5%;top:0;width:min(330px,70%);z-index:3}
+.formwrap svg{width:100%;height:auto;display:block;filter:drop-shadow(0 18px 22px rgba(32,26,43,.22))}
+.hang{position:absolute;width:78px;padding:26px 8px 12px;background:var(--cream);color:var(--ink);font-family:var(--font-caps);font-size:.68rem;letter-spacing:.06em;text-align:center;line-height:1.3;
+  clip-path:polygon(50% 0,100% 22%,100% 100%,0 100%,0 22%);transform-origin:50% -22px;animation:swing 4.5s ease-in-out infinite alternate;z-index:6}
 .hang b{display:block;font-family:var(--font-display);font-size:1.25rem;letter-spacing:0;margin-top:4px}
 .hang::before{content:"";position:absolute;top:8px;left:50%;width:8px;height:8px;margin-left:-4px;border-radius:50%;border:2px solid #8f8470;background:rgba(32,26,43,.25)}
 .hang::after{content:"";position:absolute;top:-22px;left:50%;height:22px;border-left:1.5px solid var(--ink-soft)}
-.hero .hang{right:36%;top:0}
+.formwrap .hang{left:calc(50% + 26px);top:9%}
 @keyframes swing{from{transform:rotate(-5deg)}to{transform:rotate(5deg)}}
-.sticky-note{background:#FBE48A;color:var(--ink);font-family:var(--font-script);font-size:1.25rem;line-height:1.2;padding:16px 16px 18px;width:220px;
-  box-shadow:2px 6px 14px rgba(32,26,43,.2);transform:rotate(2.5deg)}
-.sticky-note::before{content:"";position:absolute;top:-10px;left:50%;width:70px;height:22px;margin-left:-35px;background:rgba(255,255,255,.55);transform:rotate(-2deg)}
-.legend{position:fixed;left:calc(16px + env(safe-area-inset-left,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:50}
-.legend .sticky-note{position:relative;width:230px}
-.legend button{position:absolute;top:4px;right:6px;border:0;background:transparent;font-size:1.1rem;cursor:pointer;color:var(--ink-soft);font-family:inherit}
+.tomato{position:absolute;left:3%;bottom:4%;width:150px;z-index:4;filter:drop-shadow(0 8px 10px rgba(32,26,43,.2))}
+.spools{position:absolute;left:33%;bottom:3%;display:flex;gap:8px;align-items:flex-end;z-index:4;filter:drop-shadow(0 8px 10px rgba(32,26,43,.2))}
+.spools svg{width:44px;height:auto}
+.spools svg:nth-child(2){width:50px;margin-bottom:6px}
+.spools svg:nth-child(3){width:40px}
+.shears{position:absolute;left:-2%;top:46%;width:200px;transform:rotate(-24deg);z-index:2;filter:drop-shadow(0 6px 8px rgba(32,26,43,.22))}
+.ring-badge{position:absolute;left:2%;top:4%;width:180px;height:180px;z-index:4;display:grid;place-items:center;filter:drop-shadow(0 6px 10px rgba(32,26,43,.2))}
+.ring-badge svg{position:absolute;inset:0;width:100%;height:100%;animation:spin 40s linear infinite}
+.ring-badge .disc{position:absolute;inset:0;border-radius:50%;background:var(--cream);background-image:var(--grain);outline:3px dashed var(--violet);outline-offset:-10px}
+.ring-badge img{width:46%;position:relative}
+@keyframes spin{to{transform:rotate(360deg)}}
+.collage .woven.sourced{position:absolute;right:0;bottom:28%;transform:rotate(6deg);z-index:5}
+.stampmark{font-family:var(--font-type);font-size:1.3rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brick);
+  border:3px double var(--brick);border-radius:4px;padding:.15em .55em;opacity:.85;display:inline-block;filter:url(#rough)}
 
-/* the rack */
+/* the rail of pattern envelopes */
 .rack-section{overflow:hidden}
 .rack{position:relative;padding-top:46px}
 .rod{position:absolute;top:30px;left:-40px;right:-40px;height:12px;border-radius:6px;background:linear-gradient(#d6b985,#8c6a32 60%,#5e4518);box-shadow:0 3px 4px rgba(0,0,0,.2)}
 .rack-row{display:flex;gap:30px;overflow-x:auto;padding:0 6px 28px;scroll-snap-type:x proximity;scrollbar-width:thin}
-.item{flex:0 0 232px;scroll-snap-align:start;position:relative;padding-top:34px;text-decoration:none;color:inherit;transform-origin:50% 0;transition:transform .5s}
-.item:hover{transform:rotate(1.6deg)}
-.item .hanger{position:absolute;top:-14px;left:50%;width:84px;margin-left:-42px;z-index:2}
-.item .card{aspect-ratio:3/4;display:grid;place-items:center;padding:22px;position:relative;box-shadow:0 10px 20px rgba(32,26,43,.14)}
-.item .card svg{width:62%;height:auto}
-.item .hang{right:-6px;top:22px}
+.item{flex:0 0 240px;scroll-snap-align:start;position:relative;padding-top:38px;text-decoration:none;color:inherit;transform-origin:50% 0;transition:transform .5s}
+.item:hover{transform:rotate(1.4deg)}
+.item .clip{position:absolute;top:-22px;left:50%;width:40px;margin-left:-20px;z-index:3}
+.tissue-peek{position:absolute;top:18px;left:16%;width:58%;height:40px;background:var(--tissue);border:1px dashed rgba(32,26,43,.4);transform:rotate(-2deg);z-index:0;
+  background-image:linear-gradient(90deg,transparent 48%,rgba(32,26,43,.35) 48%,rgba(32,26,43,.35) 52%,transparent 52%)}
+.envelope{position:relative;z-index:1;background:linear-gradient(180deg,#FDF8EE,#F4EAD6);border:1px solid rgba(32,26,43,.22);box-shadow:0 12px 22px rgba(32,26,43,.16),inset 0 0 0 1px rgba(255,255,255,.6);
+  display:grid;grid-template-rows:auto 1fr auto;aspect-ratio:3/4;overflow:hidden;--ink2:var(--violet);--wash:var(--lilac-wash)}
+.env-top{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 10px;background:var(--ink2);color:var(--thread)}
+.env-top .brandline{font-family:var(--font-caps);font-size:.5rem;letter-spacing:.18em;text-transform:uppercase}
+.env-top .no{font-family:var(--font-type);font-size:.9rem;white-space:nowrap}
+.env-art{position:relative;display:grid;place-items:center;background-color:var(--wash);background-image:var(--grain);color:var(--ink2);padding:18px}
+.env-art svg{width:54%;height:auto;filter:drop-shadow(2px 3px 0 rgba(32,26,43,.14))}
+.env-art .view{position:absolute;left:10px;top:8px;font-family:var(--font-type);font-size:.68rem;letter-spacing:.1em;color:var(--ink-soft)}
+.env-art .stampmark{position:absolute;right:8px;bottom:8px;font-size:.78rem;padding:.08em .4em;transform:rotate(-8deg)}
+.env-foot{padding:8px 10px 10px;display:grid;grid-template-columns:1fr auto;gap:5px 10px;align-items:end;border-top:1px dashed rgba(32,26,43,.3)}
+.env-foot .sizes{font-family:var(--font-caps);font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);grid-column:1/-1}
+.sizegrid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;font-family:var(--font-type);font-size:.6rem;color:var(--ink);line-height:1.5}
+.sizegrid span{border:1px solid rgba(32,26,43,.25);text-align:center;padding:0 2px}
+.sizegrid span.h{background:rgba(32,26,43,.08)}
+.env-foot .price{font-family:var(--font-display);font-size:1.3rem;font-weight:700;color:var(--brick);line-height:1}
 .item .meta{padding:14px 4px 0}
 .item .meta h3{font-family:var(--font-display);font-size:1.25rem;font-weight:400}
 .item .meta p{font-size:.9rem;color:var(--ink-soft)}
-.era-sticker{position:absolute;left:-8px;bottom:-10px;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;font-family:var(--font-display);font-style:italic;font-size:1.1rem;
-  background:var(--gold);color:var(--ink);box-shadow:0 3px 6px rgba(0,0,0,.18);transform:rotate(-12deg);outline:2px dashed rgba(32,26,43,.5);outline-offset:-5px}
-.c-lilac{background:var(--lilac-wash);color:var(--violet)} .c-rose{background:var(--rose-wash);color:var(--rose-deep)} .c-mustard{background:#F6E4B0;color:#9a6e0e}
-.c-teal{background:var(--teal-wash);color:var(--teal)} .c-denim{background:#DCE3EE;color:var(--denim)}
 .rack-foot{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-top:8px}
 
-/* eras as sewing pattern pieces */
-.eras{background:var(--tissue);background-image:repeating-linear-gradient(0deg,rgba(32,26,43,.06) 0 1px,transparent 1px 28px),repeating-linear-gradient(90deg,rgba(32,26,43,.06) 0 1px,transparent 1px 28px)}
-.eras::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 20%,rgba(255,255,255,.6),transparent 50%);pointer-events:none}
+/* eras: pattern pieces pinned to the cutting mat */
+.eras{background-color:var(--mat);color:var(--thread);
+  background-image:
+    repeating-linear-gradient(0deg,rgba(255,255,255,.16) 0 1px,transparent 1px 120px),
+    repeating-linear-gradient(90deg,rgba(255,255,255,.16) 0 1px,transparent 1px 120px),
+    repeating-linear-gradient(0deg,rgba(255,255,255,.07) 0 1px,transparent 1px 24px),
+    repeating-linear-gradient(90deg,rgba(255,255,255,.07) 0 1px,transparent 1px 24px),
+    linear-gradient(135deg,rgba(255,255,255,.06),transparent 50%,rgba(0,0,0,.08))}
+.eras::before{content:"";position:absolute;left:0;right:0;top:0;height:22px;background-color:rgba(255,255,255,.14);border-bottom:1px solid rgba(255,255,255,.45);
+  background-image:repeating-linear-gradient(90deg,rgba(255,255,255,.75) 0 1px,transparent 1px 12px),repeating-linear-gradient(90deg,rgba(255,255,255,.9) 0 1.5px,transparent 1.5px 60px);
+  background-size:100% 7px,100% 14px;background-position:0 100%,0 100%;background-repeat:no-repeat}
+.eras .eyebrow{color:var(--thread)}
+.eras .note{color:var(--teal-wash)}
+.eras .run{background-image:repeating-linear-gradient(90deg,var(--thread) 0 12px,transparent 12px 19px)}
 .pieces{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;position:relative;z-index:1}
 .piece{position:relative;text-decoration:none;color:inherit;transition:transform .35s;display:block}
 .piece:hover{transform:translateY(-8px) rotate(-1deg)}
-.piece svg{width:100%;height:auto;filter:drop-shadow(0 10px 14px rgba(32,26,43,.18))}
-.piece .pin{position:absolute;top:-16px;left:48%;width:34px;transform:rotate(18deg);filter:drop-shadow(1px 3px 3px rgba(0,0,0,.3))}
-.piece .pin.l{left:14%;transform:rotate(-24deg)}
+.piece>svg{width:100%;height:auto;filter:drop-shadow(0 10px 14px rgba(0,0,0,.3))}
+.piece .pinst{position:absolute;top:-22px;left:50%;width:16px;transform:rotate(22deg);filter:drop-shadow(1px 3px 3px rgba(0,0,0,.35));z-index:2}
+.piece .pinst.l{left:16%;transform:rotate(-26deg)}
+.piece .chalkmark{position:absolute;right:4%;top:6%;font-size:1.2rem;transform:rotate(-6deg)}
 .piece-copy{margin-top:14px;display:grid;gap:4px}
-.piece-copy h3{font-family:var(--font-display);font-size:1.3rem;font-weight:400}
-.piece-copy p{font-size:.95rem;color:var(--ink-soft)}
+.piece-copy h3{font-family:var(--font-display);font-size:1.3rem;font-weight:400;color:var(--thread)}
+.piece-copy p{font-size:.95rem;color:var(--teal-wash)}
 
-/* behind the brand, the open book on denim */
+/* behind the brand: a toile pinned on the denim */
 .brand{color:var(--ink);overflow:hidden;
   background:
     repeating-linear-gradient(45deg,rgba(255,255,255,.07) 0 2px,transparent 2px 6px),
@@ -219,37 +238,57 @@ h2.ransom{font-size:clamp(1.55rem,4.4vw,3.3rem)}
   background:radial-gradient(circle at 30% 30%,#8a2d3a,#5a1622 70%);box-shadow:inset 0 0 40px rgba(0,0,0,.4),0 20px 40px rgba(0,0,0,.35);pointer-events:none;
   background-image:radial-gradient(circle,rgba(255,255,255,.08) 0 1px,transparent 1.5px);background-size:6px 6px}
 .leather::after{content:"";position:absolute;left:30px;top:40px;width:70px;height:70px;border:9px solid #b58a3c;border-radius:50%;box-shadow:inset 0 0 6px rgba(0,0,0,.4),0 2px 4px rgba(0,0,0,.4)}
-.book{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;background:#F6EEDF;box-shadow:0 30px 60px rgba(0,0,0,.45),0 4px 10px rgba(0,0,0,.3);border-radius:4px 10px 10px 4px}
-.page{padding:clamp(28px,4vw,52px) clamp(22px,3.5vw,48px);display:grid;gap:18px;align-content:start;position:relative;min-width:0}
-.page.l{border-right:1px solid rgba(32,26,43,.15);background:linear-gradient(90deg,#F6EEDF 92%,#e7dcc6)}
-.page.r{background:linear-gradient(270deg,#F6EEDF 92%,#ebe0cb)}
-.page .script{font-size:1.5rem;color:var(--ink)}
-.page .script.big{font-size:1.7rem}
-.page .italic-lead{font-family:var(--font-display);font-style:italic;font-size:1.5rem;line-height:1.25}
-.page .pol{width:200px;justify-self:end;margin-top:10px;transform:rotate(4deg)}
-.page .pol .tape{top:-12px;left:28px;width:90px;transform:rotate(-6deg)}
-.press-eyebrow{font-family:var(--font-caps);letter-spacing:.3em;text-transform:uppercase;font-size:.8rem;display:flex;align-items:center;gap:14px}
-.press-eyebrow .scrawl{font-family:var(--font-script);font-size:1.6rem;letter-spacing:0;text-transform:none;text-decoration:line-through;text-decoration-thickness:3px}
+.toile{position:relative;z-index:1;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center;
+  background-color:var(--muslin);background-image:repeating-linear-gradient(0deg,rgba(91,51,168,.3) 0 7px,transparent 7px 14px),var(--grain),var(--weave);
+  background-size:1.5px 100%,auto,auto,auto;background-position:64% 0,0 0,0 0,0 0;background-repeat:no-repeat,repeat,repeat,repeat;
+  padding:clamp(28px,4vw,56px);transform:rotate(-.6deg);box-shadow:0 30px 60px rgba(0,0,0,.45),0 4px 10px rgba(0,0,0,.3);
+  outline:2px dashed rgba(32,26,43,.35);outline-offset:-14px}
+.toile::after{content:"";position:absolute;left:0;right:0;bottom:-14px;height:14px;background:repeating-linear-gradient(90deg,#e4d8c0 0 1px,transparent 1px 3px)}
+.toile .pinst{position:absolute;width:16px;filter:drop-shadow(1px 3px 3px rgba(0,0,0,.35));z-index:3}
+.toile .pinst.tl{left:14px;top:-10px;transform:rotate(-30deg)}
+.toile .pinst.tr{right:18px;top:-6px;transform:rotate(28deg)}
+.toile .pinst.bl{left:28px;bottom:10px;transform:rotate(-150deg)}
+.toile .pinst.br{right:30px;bottom:14px;transform:rotate(160deg)}
+.toile-copy{display:grid;gap:18px;align-content:start;min-width:0}
+.toile-copy .chalk.big{font-size:1.8rem}
+.toile-copy .quote{font-family:var(--font-body);font-style:italic;font-size:1.08rem;color:var(--ink)}
+.press-eyebrow{font-family:var(--font-caps);letter-spacing:.3em;text-transform:uppercase;font-size:.8rem;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.press-eyebrow .scrawl{font-family:var(--font-script);font-size:1.6rem;letter-spacing:0;text-transform:none;text-decoration:line-through;text-decoration-thickness:3px;color:var(--violet-deep)}
+.chalkbox{display:flex;gap:10px 22px;flex-wrap:wrap;font-family:var(--font-script);font-size:1.3rem;color:var(--violet-deep);border:1.5px dashed rgba(91,51,168,.6);padding:8px 14px;justify-self:start}
+.chalkbox span+span::before{content:"·";margin-right:22px;opacity:.6}
+.toile .hoop{justify-self:center;transform:rotate(3deg)}
 
-/* pop ups on a kraft board */
-.popups{background:var(--kraft);background-image:radial-gradient(circle at 25% 35%,rgba(0,0,0,.06) 0 1px,transparent 2px),radial-gradient(circle at 75% 65%,rgba(255,255,255,.14) 0 1px,transparent 2px);background-size:13px 13px,17px 17px}
+/* embroidery hoops */
+.hoop{margin:0;position:relative;width:var(--w,220px);max-width:100%;transform:rotate(var(--r,0deg));transition:transform .4s;display:grid;gap:12px;justify-items:center;padding-top:14px}
+.hoop:hover{transform:rotate(0) translateY(-6px)}
+.hoop .fabric{width:100%;aspect-ratio:1;border-radius:50%;display:grid;place-items:center;overflow:hidden;position:relative;
+  background-color:var(--wash,var(--lilac-wash));background-image:var(--grain),repeating-linear-gradient(0deg,rgba(32,26,43,.05) 0 1px,transparent 1px 3px),repeating-linear-gradient(90deg,rgba(32,26,43,.05) 0 1px,transparent 1px 3px);
+  border:11px solid var(--wood);box-shadow:inset 0 0 0 3px rgba(0,0,0,.14),inset 0 0 0 7px var(--wood-light),inset 0 0 0 8px rgba(0,0,0,.1),0 14px 26px rgba(32,26,43,.24),0 0 0 2px rgba(0,0,0,.1)}
+.hoop .fabric img{width:44%}
+.hoop .clamp{position:absolute;top:0;left:50%;width:34px;height:26px;margin-left:-17px;background:linear-gradient(var(--wood-light),var(--wood-dark));border-radius:5px 5px 2px 2px;box-shadow:0 2px 2px rgba(0,0,0,.25);z-index:2}
+.hoop .clamp::before{content:"";position:absolute;left:-11px;right:-11px;top:9px;height:6px;background:var(--brass);border-radius:3px;box-shadow:0 1px 1px rgba(0,0,0,.3)}
+.hoop .clamp::after{content:"";position:absolute;left:50%;top:-7px;width:8px;height:9px;margin-left:-4px;background:var(--brass);border-radius:2px}
+.hoop figcaption{font-size:1.2rem;text-align:center}
+
+/* pop ups as swing tags on a rail */
+.popups{background-color:var(--rose-wash);background-image:var(--grain),var(--weave);overflow:hidden;--behind:var(--rose-wash)}
 .popups .eyebrow{color:var(--oxblood)}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:34px 30px;align-items:start}
-.postcard{--card:#FBF6EC;background:var(--card);padding:22px 22px 24px;position:relative;box-shadow:0 12px 24px rgba(0,0,0,.22);transform:rotate(var(--r,0deg));display:grid;gap:12px;min-width:0}
-.postcard .pin{position:absolute;top:-18px;left:50%;width:36px;margin-left:-18px;z-index:2;filter:drop-shadow(1px 4px 3px rgba(0,0,0,.35))}
-.postcard .top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
-.postmark{width:120px;flex:0 0 auto}
-.stamp{padding:7px;background:radial-gradient(var(--card) 0 2.6px,#fff 3px) -6px -6px/12px 12px;width:76px;flex:0 0 auto;transform:rotate(3deg)}
-.stamp .inner{aspect-ratio:4/5;background:linear-gradient(160deg,var(--lilac-wash),#fff0e6);display:grid;place-items:center;border:1px solid rgba(32,26,43,.12);position:relative}
-.stamp .inner img{width:64%}
-.stamp .inner span{position:absolute;bottom:2px;left:0;right:0;text-align:center;font-family:var(--font-caps);font-size:.5rem;letter-spacing:.1em}
-.postcard .when{font-family:var(--font-script);font-size:1.9rem;line-height:1;color:var(--violet-deep)}
-.postcard .where{display:grid;gap:2px;font-size:.98rem}
-.postcard .where span{border-bottom:1px solid rgba(32,26,43,.25);padding-bottom:2px}
-.postcard .where .lab{font-family:var(--font-caps);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);border:0;padding:0;margin-top:6px}
-.postcard .btn{justify-self:start;margin-top:6px}
+.tagrail{position:relative;padding-top:20px}
+.tagrail .rod{top:8px}
+.tags{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;padding-top:72px;align-items:start}
+.swingtag{--len:56px;--str:var(--len);position:relative;margin-top:calc(var(--len) - 56px);transform-origin:50% calc(-1*var(--str));animation:swingSlow 7s ease-in-out infinite alternate;animation-delay:var(--dl,0s);filter:drop-shadow(0 14px 16px rgba(32,26,43,.22));min-width:0}
+.swingtag::before{content:"";position:absolute;left:50%;top:calc(-1*var(--str));height:var(--str);border-left:1.5px solid var(--ink-soft);z-index:0}
+.tagbody{position:relative;background-color:var(--cream);background-image:var(--grain),var(--weave);padding:52px 22px 26px;display:grid;gap:12px;
+  clip-path:polygon(50% 0,100% 11%,100% 100%,0 100%,0 11%);outline:2px dashed rgba(32,26,43,.35);outline-offset:-12px}
+.tagbody::before{content:"";position:absolute;top:22px;left:50%;width:16px;height:16px;margin-left:-8px;border-radius:50%;border:3px solid #b8a98a;background:var(--behind)}
+@keyframes swingSlow{from{transform:rotate(-1.6deg)}to{transform:rotate(1.6deg)}}
+.tagbody .when{font-size:1.15rem;justify-self:start;transform:rotate(-3deg);margin-top:6px}
+.tagbody .where{display:grid;gap:2px;font-size:.98rem}
+.tagbody .where span{border-bottom:1px solid rgba(32,26,43,.25);padding-bottom:2px}
+.tagbody .where .lab{font-family:var(--font-caps);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);border:0;padding:0;margin-top:6px}
+.tagbody .btn{justify-self:start;margin-top:6px}
 
-/* the process, stitched steps */
+/* the process, buttons on a thread */
 .process{overflow:hidden}
 .steps{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
 .steps .thread{position:absolute;left:0;right:0;top:36px;height:40px;pointer-events:none}
@@ -258,33 +297,26 @@ h2.ransom{font-size:clamp(1.55rem,4.4vw,3.3rem)}
 .step:hover .button{transform:rotate(25deg) scale(1.06)}
 .step h3{font-family:var(--font-display);font-size:1.3rem;font-weight:400}
 .step p{font-size:.98rem;color:var(--ink-soft)}
-.step .num{font-family:'Special Elite','Courier New',monospace;font-size:.85rem;letter-spacing:.1em;color:var(--brick)}
+.step .num{font-family:var(--font-type);font-size:.85rem;letter-spacing:.1em;color:var(--brick)}
 
-/* the feed, polaroids */
-.feed{background:var(--rose-wash);overflow:hidden}
-.feed::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 15% 85%,rgba(230,184,74,.25),transparent 40%),radial-gradient(circle at 85% 10%,rgba(205,185,234,.4),transparent 40%);pointer-events:none}
-.pols{display:flex;flex-wrap:wrap;justify-content:center;gap:34px 26px;position:relative;z-index:1}
-.pol{background:#FFFDF8;padding:10px 10px 36px;box-shadow:0 10px 24px rgba(32,26,43,.18);transform:rotate(var(--r,0deg));transition:transform .4s;position:relative;width:200px}
-.pol:hover{transform:rotate(0) translateY(-8px)}
-.pol .photo{aspect-ratio:1;display:grid;place-items:center;background:var(--wash,var(--lilac-wash));position:relative;overflow:hidden}
-.pol .photo img{width:48%;opacity:.95}
-.pol .cap{position:absolute;left:10px;right:10px;bottom:6px;font-family:var(--font-script);font-size:1.15rem;line-height:1.1;text-align:center;color:var(--ink-soft)}
-.pol .tape{top:-13px;left:50%;margin-left:-55px;width:110px;transform:rotate(-3deg)}
-.feed .handle{font-family:var(--font-caps);letter-spacing:.14em;text-transform:uppercase;font-size:.85rem;text-decoration:none;display:inline-block;margin-top:34px;border-bottom:2px solid var(--violet)}
+/* the feed, a wall of hoops */
+.feed{background-color:var(--lilac-wash);background-image:var(--grain),var(--weave);overflow:hidden}
+.feed::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 15% 85%,rgba(230,184,74,.22),transparent 40%),radial-gradient(circle at 85% 10%,rgba(233,179,171,.4),transparent 40%);pointer-events:none}
+.hoops{display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-start;gap:34px 30px;position:relative;z-index:1}
+.feed .handle{margin-top:38px}
 
 /* newsletter as a care label */
-.signup{background:var(--lilac-wash);overflow:hidden}
-.label{position:relative;max-width:760px;margin:0 auto;background:#FFFDF8;padding:clamp(28px,4vw,44px) clamp(22px,4vw,48px);display:grid;gap:18px;
-  box-shadow:0 14px 30px rgba(59,31,120,.18);border-left:12px solid transparent;border-right:12px solid transparent;
-  background-clip:padding-box}
+.signup{background-color:var(--teal-wash);background-image:var(--grain),var(--weave);overflow:hidden}
+.label{position:relative;max-width:760px;margin:0 auto;background:var(--cream);background-image:var(--grain);padding:clamp(28px,4vw,44px) clamp(22px,4vw,48px);display:grid;gap:18px;
+  box-shadow:0 14px 30px rgba(59,31,120,.18);border-left:12px solid transparent;border-right:12px solid transparent;background-clip:padding-box}
 .label::before,.label::after{content:"";position:absolute;top:0;bottom:0;width:12px;background:repeating-linear-gradient(0deg,rgba(32,26,43,.45) 0 3px,transparent 3px 8px)}
 .label::before{left:-12px}.label::after{right:-12px}
 .care{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
 .care svg{width:34px;height:34px}
-.care .legend-txt{font-family:'Special Elite','Courier New',monospace;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.care .legend-txt{font-family:var(--font-type);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
 .label h2{font-family:var(--font-display);font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:400}
 .label form{display:flex;gap:12px;flex-wrap:wrap}
-.label input{flex:1 1 220px;min-width:0;font:inherit;padding:.8em 1em;border:2px dashed rgba(32,26,43,.4);background:var(--paper);border-radius:4px;color:var(--ink)}
+.label input{flex:1 1 220px;min-width:0;font:inherit;padding:.8em 1em;border:2px dashed rgba(32,26,43,.4);background:var(--muslin);border-radius:4px;color:var(--ink)}
 .label .thanks{font-family:var(--font-script);font-size:1.35rem;color:var(--violet-deep)}
 .safety{position:absolute;top:-26px;right:40px;width:90px;transform:rotate(-30deg);filter:drop-shadow(0 3px 4px rgba(0,0,0,.25))}
 
@@ -294,48 +326,59 @@ footer::before{content:"";position:absolute;left:0;right:0;top:-14px;height:14px
   background:linear-gradient(135deg,var(--violet-deep) 25%,transparent 25%) -7px 0/14px 14px,linear-gradient(225deg,var(--violet-deep) 25%,transparent 25%) -7px 0/14px 14px}
 footer .wrap{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:36px;align-items:start}
 footer .brandcol{display:grid;gap:14px;justify-items:start}
-footer .brandcol img{width:150px;background:#FFFDF8;border-radius:50%;padding:14px;outline:2px dashed var(--lilac);outline-offset:-9px}
+footer .brandcol img{width:150px;background:var(--cream);border-radius:50%;padding:14px;outline:2px dashed var(--lilac);outline-offset:-9px}
 footer h4{font-family:var(--font-caps);font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;margin:0 0 12px;color:var(--lilac)}
 footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
 footer a{text-decoration:none;color:var(--thread)}
-footer a:hover{text-decoration:underline wavy var(--mustard);text-underline-offset:5px}
+footer a:hover{text-decoration:underline dashed var(--mustard);text-underline-offset:5px}
 footer .fine{grid-column:1/-1;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.85rem;color:var(--lilac);border-top:1px dashed rgba(251,245,232,.35);padding-top:18px;margin-top:10px}
 footer .script{color:var(--lilac)}
+footer .palette{display:flex;gap:6px;align-items:flex-end}
+footer .palette svg{width:26px;height:auto}
 
 /* responsive */
 @media (max-width:980px){
-  .pieces,.cards{grid-template-columns:repeat(2,1fr)}
+  .pieces,.tags{grid-template-columns:repeat(2,1fr)}
   .steps{grid-template-columns:repeat(2,1fr);gap:40px 28px}
   .steps .thread{display:none}
   footer .wrap{grid-template-columns:1fr 1fr}
+  .toile{grid-template-columns:1fr;background-position:94% 0,0 0,0 0,0 0}
+  .toile .hoop{justify-self:start}
 }
 @media (max-width:860px){
   .hero .wrap{grid-template-columns:1fr;gap:28px}
-  .collage{min-height:480px;margin-top:10px}
-  .hero-pol{right:2%;width:min(320px,70%)}
-  .ring-badge{width:150px;height:150px}
+  .collage{min-height:540px;margin-top:10px}
+  .formwrap{right:4%;width:min(290px,64%)}
+  .ring-badge{width:140px;height:140px}
   .nav .logo img{height:46px}
   .nav .wrap{grid-template-columns:1fr auto}
-  .nav nav{grid-column:1/-1;justify-self:start}
+  .nav .logo{grid-column:1;grid-row:1}
+  .nav .bag{grid-column:2;grid-row:1;justify-self:end}
+  .nav nav{grid-column:1/-1;grid-row:2;justify-self:start}
   .nav ul{gap:2px 16px}
   .nav li a{font-size:.72rem}
 }
 @media (max-width:720px){
   .nav{position:static}
-  .legend{position:static;display:flex;justify-content:flex-end;padding:22px var(--gutter-r) 0 var(--gutter-l)}
-  .legend .sticky-note{width:250px}
-  .book{grid-template-columns:1fr}
-  .page.l{border-right:0;border-bottom:1px solid rgba(32,26,43,.15)}
-  .pieces,.cards{grid-template-columns:1fr}
-  .cards{gap:40px}
+  .pieces,.tags{grid-template-columns:1fr}
+  .tags{gap:44px}
+  .swingtag{margin-top:0;--str:26px}
+  .tags{padding-top:46px}
 }
 @media (max-width:560px){
   body{font-size:16px}
   .steps{grid-template-columns:1fr}
   footer .wrap{grid-template-columns:1fr}
-  .legend .sticky-note{width:200px;font-size:1.1rem}
-  .hero .hang{right:auto;left:2%;top:0}
-  .hero .stampmark{bottom:8%}
+  .collage{min-height:500px}
+  .formwrap{width:min(250px,62%);right:2%}
+  .tomato{width:112px;left:0}
+  .shears{width:140px;top:40%;left:-4%}
+  .spools{left:30%}
+  .spools svg{width:34px}
+  .spools svg:nth-child(2){width:38px}
+  .ring-badge{width:120px;height:120px;top:2%}
+  .collage .woven.sourced{bottom:22%;font-size:.58rem}
+  .ticket{justify-content:flex-start}
 }
 /* opening sequence: the flower turns in, the ring counter-turns, then the flower glides into the wordmark */
 .vv-intro{position:fixed;inset:0;z-index:60;pointer-events:none;overflow:hidden;animation:vvIntro 5.6s linear 1 both;--vvs:1}
@@ -359,7 +402,7 @@ footer .script{color:var(--lilac)}
 @keyframes vvRise{0%,80%{opacity:0;transform:translateY(28px);animation-timing-function:cubic-bezier(.16,1,.3,1)}100%{opacity:1;transform:translateY(0)}}
 @media (prefers-reduced-motion:reduce){
   .vv-intro{display:none}
-  .tape-marquee .track,.ring-badge svg,.fv,.hang,.hero .wrap,.nav .logo img{animation:none}
+  .tape-marquee .track,.ring-badge svg,.fv,.hang,.swingtag,.hero .wrap,.nav .logo img{animation:none}
   *{transition:none!important}
 }
 </style>
@@ -374,14 +417,17 @@ footer .script{color:var(--lilac)}
     <feTurbulence type="fractalNoise" baseFrequency="0.09" numOctaves="2" seed="3" result="n"/>
     <feDisplacementMap in="SourceGraphic" in2="n" scale="3"/>
   </filter>
-  <symbol id="hanger" viewBox="0 0 84 52">
-    <path d="M46 5a5.5 5.5 0 1 0-4 9v6L6 44h72L42 20" fill="none" stroke="#7a6038" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round"/>
+  <pattern id="muslinP" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="4" fill="#F3EBDB"/><path d="M0 2.5h4M2.5 0v4" stroke="rgba(120,95,60,.18)" stroke-width="1"/></pattern>
+  <linearGradient id="iron" x1="0" x2="1"><stop offset="0" stop-color="#2b2531"/><stop offset=".5" stop-color="#5a5262"/><stop offset="1" stop-color="#2b2531"/></linearGradient>
+  <symbol id="clip" viewBox="0 0 44 64">
+    <path d="M22 32V22a9 9 0 1 1 0-18a9 9 0 1 1 0 18" fill="none" stroke="#8a8a92" stroke-width="2.6" stroke-linecap="round"/>
+    <rect x="8" y="32" width="28" height="28" rx="5" fill="#3a3340"/>
+    <rect x="12" y="38" width="20" height="4" rx="2" fill="rgba(255,255,255,.25)"/>
   </symbol>
-  <symbol id="pushpin" viewBox="0 0 40 52">
-    <line x1="20" y1="24" x2="20" y2="50" stroke="#7d7d85" stroke-width="2.2"/>
-    <circle cx="20" cy="14" r="11" fill="var(--pinc,#B4463B)"/>
-    <circle cx="16" cy="10" r="3.5" fill="rgba(255,255,255,.5)"/>
-    <rect x="12" y="22" width="16" height="4" rx="2" fill="var(--pinc,#B4463B)"/>
+  <symbol id="pinst" viewBox="0 0 14 72">
+    <line x1="7" y1="12" x2="7" y2="70" stroke="#a0a0a8" stroke-width="2"/>
+    <circle cx="7" cy="7" r="6" fill="var(--pinc,#5B33A8)"/>
+    <circle cx="5" cy="5" r="2" fill="rgba(255,255,255,.55)"/>
   </symbol>
   <symbol id="sewbutton" viewBox="0 0 80 80">
     <circle cx="40" cy="40" r="36" fill="var(--bc,#5B33A8)"/>
@@ -390,6 +436,31 @@ footer .script{color:var(--lilac)}
     <circle cx="30" cy="30" r="4" fill="rgba(32,26,43,.55)"/><circle cx="50" cy="30" r="4" fill="rgba(32,26,43,.55)"/>
     <circle cx="30" cy="50" r="4" fill="rgba(32,26,43,.55)"/><circle cx="50" cy="50" r="4" fill="rgba(32,26,43,.55)"/>
     <path d="M30 30L50 50M50 30L30 50" stroke="#FBF5E8" stroke-width="3" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="spool" viewBox="0 0 60 84">
+    <rect x="5" y="4" width="50" height="11" rx="3" fill="#D9B37F" stroke="#7A5A2E" stroke-width="1"/>
+    <rect x="5" y="69" width="50" height="11" rx="3" fill="#D9B37F" stroke="#7A5A2E" stroke-width="1"/>
+    <rect x="11" y="15" width="38" height="54" fill="var(--sc,#5B33A8)"/>
+    <path d="M11 20h38M11 26h38M11 32h38M11 38h38M11 44h38M11 50h38M11 56h38M11 62h38" stroke="rgba(0,0,0,.16)" stroke-width="1.2"/>
+    <rect x="14" y="15" width="7" height="54" fill="rgba(255,255,255,.22)"/>
+    <path d="M49 44c10 2 12 14 8 30" fill="none" stroke="var(--sc,#5B33A8)" stroke-width="1.6" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="tomato" viewBox="0 0 130 120">
+    <ellipse cx="62" cy="112" rx="46" ry="6" fill="rgba(32,26,43,.14)"/>
+    <circle cx="62" cy="66" r="42" fill="#B4463B"/>
+    <path d="M62 24C40 44 40 88 62 108M62 24C84 44 84 88 62 108M20 66h84" fill="none" stroke="rgba(0,0,0,.22)" stroke-width="2.5"/>
+    <ellipse cx="46" cy="46" rx="11" ry="6" fill="rgba(255,255,255,.22)" transform="rotate(-30 46 46)"/>
+    <path d="M50 26q12-14 24 0q-12 8-24 0z" fill="#2F7D6B"/>
+    <g stroke="#9a9aa2" stroke-width="1.6" stroke-linecap="round"><path d="M44 40L30 14"/><path d="M62 30V6"/><path d="M80 40l12-24"/><path d="M98 72l20-8"/></g>
+    <circle cx="30" cy="12" r="3.4" fill="#5B33A8"/><circle cx="62" cy="4" r="3.4" fill="#E6B84A"/><circle cx="92" cy="14" r="3.4" fill="#2F7D6B"/><circle cx="120" cy="62" r="3.4" fill="#E9B3AB"/>
+    <path d="M100 86q8 0 8 12l-8 12-8-12q0-12 8-12z" fill="#C96B72"/><path d="M96 86h8l-4-6z" fill="#2F7D6B"/><path d="M92 76q4 6 8 10" stroke="#201A2B" fill="none" stroke-width="1"/>
+  </symbol>
+  <symbol id="shears" viewBox="0 0 170 90">
+    <ellipse cx="30" cy="26" rx="22" ry="13" fill="none" stroke="#C9A24D" stroke-width="6"/>
+    <ellipse cx="30" cy="64" rx="22" ry="13" fill="none" stroke="#C9A24D" stroke-width="6"/>
+    <path d="M50 32L160 14l4 8L72 48z" fill="#d7d7dd" stroke="#8a8a92" stroke-width="1.2"/>
+    <path d="M50 58L160 76l4-8L72 42z" fill="#c4c4cc" stroke="#8a8a92" stroke-width="1.2"/>
+    <circle cx="72" cy="45" r="4" fill="#8a8a92"/>
   </symbol>
   <symbol id="g-slip" viewBox="0 0 120 170">
     <path d="M42 8l6 36M78 8l-6 36" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
@@ -451,12 +522,7 @@ footer .script{color:var(--lilac)}
 </header>
 
 <main id="top">
-<div class="legend" id="legend">
-  <div class="sticky-note">
-    <button type="button" id="legend-close" aria-label="Hide this note">×</button>
-    Draft 1. Anything in [brackets] is placeholder copy. The logos are real, the photos are stand-ins.
-  </div>
-</div>
+  <div class="ticket"><span class="woven">Draft 2 · anything in [brackets] is placeholder copy · photos are stand-ins</span></div>
   <section class="hero">
     <div class="wash lilac" style="width:520px;height:420px;left:-120px;top:-60px"></div>
     <div class="wash gold" style="width:360px;height:300px;right:8%;top:50%;opacity:.8"></div>
@@ -464,35 +530,64 @@ footer .script{color:var(--lilac)}
     <div class="wrap">
       <div class="hero-copy">
         <p class="eyebrow">Detroit, Michigan · curated vintage</p>
-        <h1 class="ransom">Headline goes here</h1>
+        <h1 class="stitched">Headline goes here</h1>
         <p class="lede ph">[Placeholder: two warm sentences on what Violet Vintage is and who it is for. Something about cool, curated pieces from the 80s through the 00s and a closet that looks like nobody else's.]</p>
         <div class="cta-row">
           <a class="btn" href="#shop">Shop new arrivals</a>
           <a class="btn alt" href="#popups">See the next pop up</a>
         </div>
-        <p class="script">[handwritten aside: ships from Detroit, pop ups monthly, that sort of thing]</p>
+        <p class="chalk" style="font-size:1.45rem">[chalk note: ships from Detroit, pop ups monthly, that sort of thing]</p>
       </div>
       <div class="collage">
-        <img class="fv" src="assets/violet.png" alt="" style="--s:64px;--a:-18deg;--d:10s;left:8%;top:6%">
-        <img class="fv" src="assets/violet.png" alt="" style="--s:44px;--a:30deg;--d:8s;left:30%;top:0;opacity:.75">
-        <img class="fv" src="assets/violet.png" alt="" style="--s:38px;--a:-40deg;--d:11s;right:2%;top:40%;opacity:.7">
-        <div class="hang">one of one<b>$00</b></div>
-        <figure class="polaroid hero-pol" style="margin:0">
-          <div class="tape stripe"></div>
-          <div class="tape lilacdot b"></div>
-          <div class="photo"><img src="assets/violet.png" alt="Painted violet, the Violet Vintage mark"></div>
-          <figcaption class="cap">[hero photo: a look from the latest drop]</figcaption>
-        </figure>
+        <img class="fv" src="assets/violet.png" alt="" style="--s:58px;--a:-18deg;--d:10s;left:34%;top:2%">
+        <img class="fv" src="assets/violet.png" alt="" style="--s:40px;--a:30deg;--d:8s;left:52%;top:30%;opacity:.75">
+        <img class="fv" src="assets/violet.png" alt="" style="--s:36px;--a:-40deg;--d:11s;right:0;top:12%;opacity:.7">
         <div class="ring-badge" aria-hidden="true">
           <div class="disc"></div>
           <svg viewBox="0 0 200 200"><defs><path id="ringpath" d="M100,100 m-72,0 a72,72 0 1,1 144,0 a72,72 0 1,1 -144,0"/></defs>
             <text font-family="Cinzel, serif" font-size="13" letter-spacing="2.4" fill="#201A2B"><textPath href="#ringpath" textLength="448" lengthAdjust="spacingAndGlyphs">VIOLET VINTAGE · DETROIT, MI · CURATED 80S TO 00S ·</textPath></text></svg>
           <img src="assets/violet.png" alt="">
         </div>
-        <span class="stampmark">sourced</span>
+        <div class="formwrap">
+          <svg viewBox="0 0 320 540" role="img" aria-label="A dress form in muslin, pinned and chalked, with a tape measure over one shoulder">
+            <ellipse cx="160" cy="514" rx="112" ry="10" fill="rgba(32,26,43,.12)"/>
+            <ellipse cx="160" cy="500" rx="80" ry="15" fill="#241f2a"/>
+            <ellipse cx="160" cy="496" rx="74" ry="11" fill="#3a3340"/>
+            <rect x="148" y="474" width="24" height="22" rx="5" fill="#2b2531"/>
+            <rect x="156" y="358" width="8" height="120" fill="url(#iron)"/>
+            <circle cx="172" cy="420" r="5" fill="#C9A24D"/>
+            <rect x="146" y="354" width="28" height="10" rx="4" fill="#3a3340"/>
+            <circle cx="160" cy="32" r="6" fill="#3a3340"/>
+            <rect x="155" y="34" width="10" height="26" rx="4" fill="url(#iron)"/>
+            <ellipse cx="160" cy="62" rx="38" ry="12" fill="#EBE1CB" stroke="#8f8470" stroke-width="1.2"/>
+            <path d="M122 62C108 66 96 80 94 104C92 140 100 180 112 212C118 250 96 285 90 316C84 338 98 352 118 355C132 358 146 360 160 360C174 360 188 358 202 355C222 352 236 338 230 316C224 285 202 250 208 212C220 180 228 140 226 104C224 80 212 66 198 62C186 70 174 74 160 74C146 74 134 70 122 62Z" fill="url(#muslinP)" stroke="#8f8470" stroke-width="1.6"/>
+            <path d="M136 72C126 150 130 200 138 214C146 270 130 320 126 354M184 72C194 150 190 200 182 214C174 270 190 320 194 354M160 76V358" fill="none" stroke="#201A2B" stroke-width=".9" stroke-dasharray="4 3" opacity=".55"/>
+            <path d="M112 212Q160 228 208 212" fill="none" stroke="#201A2B" stroke-width="1.4" opacity=".45"/>
+            <path d="M148 118L140 196M172 118L180 196M136 146l8 8m0-8l-8 8M176 146l8 8m0-8l-8 8" fill="none" stroke="#5B33A8" stroke-width="1.4" stroke-dasharray="3 3" opacity=".75"/>
+            <circle cx="160" cy="158" r="30" fill="#FBF6EA" stroke="#5B33A8" stroke-width="1.6" stroke-dasharray="4 3"/>
+            <image href="assets/violet.png" x="138" y="134" width="44" height="48"/>
+            <path d="M196 64C222 130 198 200 192 250C186 300 212 330 218 362C222 384 212 400 206 420" fill="none" stroke="#F4E7C6" stroke-width="14" stroke-linecap="round"/>
+            <path d="M196 64C222 130 198 200 192 250C186 300 212 330 218 362C222 384 212 400 206 420" fill="none" stroke="#201A2B" stroke-width="14" stroke-dasharray="1.2 10.8" opacity=".7"/>
+            <path d="M196 64C222 130 198 200 192 250C186 300 212 330 218 362C222 384 212 400 206 420" fill="none" stroke="#201A2B" stroke-width="6" stroke-dasharray="1 5" opacity=".6"/>
+            <rect x="198" y="418" width="16" height="7" rx="1.5" fill="#9a9aa2" transform="rotate(-20 206 421)"/>
+            <g stroke="#9a9aa2" stroke-width="1.6" stroke-linecap="round"><path d="M104 150l-16-10"/><path d="M212 244l18 6"/><path d="M128 300l-14 12"/></g>
+            <circle cx="88" cy="140" r="3.4" fill="#C96B72"/><circle cx="230" cy="250" r="3.4" fill="#5B33A8"/><circle cx="114" cy="312" r="3.4" fill="#E6B84A"/>
+          </svg>
+          <div class="hang">one of one<b>$00</b></div>
+        </div>
+        <span class="woven sourced"><img src="assets/violet.png" alt="">Sourced in Detroit</span>
+        <svg class="shears" aria-hidden="true"><use href="#shears"/></svg>
+        <svg class="tomato" aria-hidden="true"><use href="#tomato"/></svg>
+        <div class="spools" aria-hidden="true">
+          <svg style="--sc:#5B33A8"><use href="#spool"/></svg>
+          <svg style="--sc:#E6B84A"><use href="#spool"/></svg>
+          <svg style="--sc:#2F7D6B"><use href="#spool"/></svg>
+        </div>
       </div>
     </div>
   </section>
+
+  <div class="seam" aria-hidden="true"></div>
 
   <section class="rack-section" id="shop">
     <div class="wash teal" style="width:380px;height:300px;left:-100px;top:10%"></div>
@@ -500,46 +595,77 @@ footer .script{color:var(--lilac)}
     <div class="wrap" style="position:relative;z-index:1">
       <div class="sec-head">
         <p class="eyebrow">New arrivals</p>
-        <h2 class="ransom">Fresh off the rack</h2>
-        <p class="note ph">[One line on how often new pieces land and why to check back. Everything here is a stand-in: the garments are sketches until product photos come in.]</p>
+        <h2 class="stitched teal">Fresh off the rail</h2>
+        <span class="run" aria-hidden="true"></span>
+        <p class="note ph">[One line on how often new pieces land and why to check back. Everything here is a stand-in: each piece is a pattern envelope until product photos come in.]</p>
       </div>
       <div class="rack">
         <div class="rod"></div>
         <div class="rack-row">
           <a class="item" href="#shop">
-            <svg class="hanger" aria-hidden="true"><use href="#hanger"/></svg>
-            <div class="card c-lilac stitch dark"><svg aria-hidden="true"><use href="#g-slip"/></svg><span class="hang">one of one<b>$00</b></span><span class="era-sticker">90s</span></div>
+            <svg class="clip" aria-hidden="true"><use href="#clip"/></svg>
+            <div class="tissue-peek" aria-hidden="true"></div>
+            <article class="envelope" style="--ink2:#5B33A8;--wash:#E9DFF6">
+              <div class="env-top"><span class="brandline">Violet Vintage patterns</span><span class="no">No. [0001]</span></div>
+              <div class="env-art"><span class="view">View A</span><svg aria-hidden="true"><use href="#g-slip"/></svg><span class="stampmark">1990s</span></div>
+              <div class="env-foot"><span class="sizes">Misses' sizes</span><div class="sizegrid"><span class="h">Size</span><span class="h">Bust</span><span class="h">Waist</span><span class="h">Hip</span><span>[ ]</span><span>[ ]</span><span>[ ]</span><span>[ ]</span></div><span class="price">$[00]</span></div>
+            </article>
             <div class="meta"><h3>[Item name]</h3><p>[size · brand or maker · era]</p></div>
           </a>
           <a class="item" href="#shop">
-            <svg class="hanger" aria-hidden="true"><use href="#hanger"/></svg>
-            <div class="card c-mustard stitch dark"><svg aria-hidden="true"><use href="#g-blazer"/></svg><span class="hang">one of one<b>$00</b></span><span class="era-sticker">80s</span></div>
+            <svg class="clip" aria-hidden="true"><use href="#clip"/></svg>
+            <div class="tissue-peek" aria-hidden="true"></div>
+            <article class="envelope" style="--ink2:#9a6e0e;--wash:#F6E4B0">
+              <div class="env-top"><span class="brandline">Violet Vintage patterns</span><span class="no">No. [0002]</span></div>
+              <div class="env-art"><span class="view">View B</span><svg aria-hidden="true"><use href="#g-blazer"/></svg><span class="stampmark">1980s</span></div>
+              <div class="env-foot"><span class="sizes">Misses' sizes</span><div class="sizegrid"><span class="h">Size</span><span class="h">Bust</span><span class="h">Waist</span><span class="h">Hip</span><span>[ ]</span><span>[ ]</span><span>[ ]</span><span>[ ]</span></div><span class="price">$[00]</span></div>
+            </article>
             <div class="meta"><h3>[Item name]</h3><p>[size · brand or maker · era]</p></div>
           </a>
           <a class="item" href="#shop">
-            <svg class="hanger" aria-hidden="true"><use href="#hanger"/></svg>
-            <div class="card c-denim stitch dark"><svg aria-hidden="true"><use href="#g-denim"/></svg><span class="hang">one of one<b>$00</b></span><span class="era-sticker">00s</span></div>
+            <svg class="clip" aria-hidden="true"><use href="#clip"/></svg>
+            <div class="tissue-peek" aria-hidden="true"></div>
+            <article class="envelope" style="--ink2:#3A5B8B;--wash:#DCE3EE">
+              <div class="env-top"><span class="brandline">Violet Vintage patterns</span><span class="no">No. [0003]</span></div>
+              <div class="env-art"><span class="view">View A</span><svg aria-hidden="true"><use href="#g-denim"/></svg><span class="stampmark">2000s</span></div>
+              <div class="env-foot"><span class="sizes">Misses' sizes</span><div class="sizegrid"><span class="h">Size</span><span class="h">Bust</span><span class="h">Waist</span><span class="h">Hip</span><span>[ ]</span><span>[ ]</span><span>[ ]</span><span>[ ]</span></div><span class="price">$[00]</span></div>
+            </article>
             <div class="meta"><h3>[Item name]</h3><p>[size · brand or maker · era]</p></div>
           </a>
           <a class="item" href="#shop">
-            <svg class="hanger" aria-hidden="true"><use href="#hanger"/></svg>
-            <div class="card c-rose stitch dark"><svg aria-hidden="true"><use href="#g-skirt"/></svg><span class="hang">one of one<b>$00</b></span><span class="era-sticker">90s</span></div>
+            <svg class="clip" aria-hidden="true"><use href="#clip"/></svg>
+            <div class="tissue-peek" aria-hidden="true"></div>
+            <article class="envelope" style="--ink2:#C96B72;--wash:#F5E0DB">
+              <div class="env-top"><span class="brandline">Violet Vintage patterns</span><span class="no">No. [0004]</span></div>
+              <div class="env-art"><span class="view">View C</span><svg aria-hidden="true"><use href="#g-skirt"/></svg><span class="stampmark">1990s</span></div>
+              <div class="env-foot"><span class="sizes">Misses' sizes</span><div class="sizegrid"><span class="h">Size</span><span class="h">Bust</span><span class="h">Waist</span><span class="h">Hip</span><span>[ ]</span><span>[ ]</span><span>[ ]</span><span>[ ]</span></div><span class="price">$[00]</span></div>
+            </article>
             <div class="meta"><h3>[Item name]</h3><p>[size · brand or maker · era]</p></div>
           </a>
           <a class="item" href="#shop">
-            <svg class="hanger" aria-hidden="true"><use href="#hanger"/></svg>
-            <div class="card c-teal stitch dark"><svg aria-hidden="true"><use href="#g-bag"/></svg><span class="hang">one of one<b>$00</b></span><span class="era-sticker">80s</span></div>
+            <svg class="clip" aria-hidden="true"><use href="#clip"/></svg>
+            <div class="tissue-peek" aria-hidden="true"></div>
+            <article class="envelope" style="--ink2:#2F7D6B;--wash:#D7E8E1">
+              <div class="env-top"><span class="brandline">Violet Vintage patterns</span><span class="no">No. [0005]</span></div>
+              <div class="env-art"><span class="view">View A</span><svg aria-hidden="true"><use href="#g-bag"/></svg><span class="stampmark">1980s</span></div>
+              <div class="env-foot"><span class="sizes">One size</span><div class="sizegrid"><span class="h">Width</span><span class="h">Height</span><span class="h">Drop</span><span class="h">Strap</span><span>[ ]</span><span>[ ]</span><span>[ ]</span><span>[ ]</span></div><span class="price">$[00]</span></div>
+            </article>
             <div class="meta"><h3>[Item name]</h3><p>[size · brand or maker · era]</p></div>
           </a>
           <a class="item" href="#shop">
-            <svg class="hanger" aria-hidden="true"><use href="#hanger"/></svg>
-            <div class="card c-lilac stitch dark"><svg aria-hidden="true"><use href="#g-blazer"/></svg><span class="hang">one of one<b>$00</b></span><span class="era-sticker">00s</span></div>
+            <svg class="clip" aria-hidden="true"><use href="#clip"/></svg>
+            <div class="tissue-peek" aria-hidden="true"></div>
+            <article class="envelope" style="--ink2:#3B1F78;--wash:#E9DFF6">
+              <div class="env-top"><span class="brandline">Violet Vintage patterns</span><span class="no">No. [0006]</span></div>
+              <div class="env-art"><span class="view">View B</span><svg aria-hidden="true"><use href="#g-blazer"/></svg><span class="stampmark">2000s</span></div>
+              <div class="env-foot"><span class="sizes">Misses' sizes</span><div class="sizegrid"><span class="h">Size</span><span class="h">Bust</span><span class="h">Waist</span><span class="h">Hip</span><span>[ ]</span><span>[ ]</span><span>[ ]</span><span>[ ]</span></div><span class="price">$[00]</span></div>
+            </article>
             <div class="meta"><h3>[Item name]</h3><p>[size · brand or maker · era]</p></div>
           </a>
         </div>
       </div>
       <div class="rack-foot">
-        <p class="script">[note: drag the rack sideways, every piece is one of one]</p>
+        <p class="chalk" style="font-size:1.4rem">[chalk note: slide the rail sideways, every piece is one of one]</p>
         <a class="btn ghost" href="#shop">See the whole shop</a>
       </div>
     </div>
@@ -549,25 +675,27 @@ footer .script{color:var(--lilac)}
     <div class="wrap">
       <div class="sec-head">
         <p class="eyebrow">Shop by decade</p>
-        <h2 class="ransom">Pick your era</h2>
-        <p class="note ph">[A sentence on the decades Violet Vintage sources, and what each one tends to bring in. Pattern pieces are a nod to the sewing table.]</p>
+        <h2 class="stitched cream">Pick your era</h2>
+        <span class="run" aria-hidden="true"></span>
+        <p class="note">[A sentence on the decades Violet Vintage sources, and what each one tends to bring in. The pattern pieces are pinned to the cutting mat.]</p>
       </div>
       <div class="pieces">
         <a class="piece" href="#shop">
-          <svg class="pin" aria-hidden="true" style="--pinc:#5B33A8"><use href="#pushpin"/></svg>
+          <svg class="pinst" aria-hidden="true" style="--pinc:#E9B3AB"><use href="#pinst"/></svg>
+          <span class="chalk white chalkmark" aria-hidden="true">cut 1 on fold</span>
           <svg viewBox="0 0 220 260" aria-hidden="true">
             <path d="M22 44l56-18q32 54 64 0l56 18-12 46q-10 50 8 162H26q18-112 8-162z" fill="#FBF6EA" stroke="#201A2B" stroke-width="1.5" stroke-dasharray="5 4"/>
-            <path d="M22 44l56-18q32 54 64 0l56 18-12 46q-10 50 8 162H26q18-112 8-162z" fill="none" stroke="#201A2B" stroke-width=".8" transform="translate(0,0)"/>
             <path d="M110 110v100M104 118l6-8 6 8M104 202l6 8 6-8" fill="none" stroke="#201A2B" stroke-width="1.5"/>
             <path d="M24 60l-6 2M194 60l6 2" stroke="#201A2B" stroke-width="1.5"/>
             <text x="110" y="92" text-anchor="middle" font-family="Bodoni Moda, serif" font-style="italic" font-size="58" fill="#5B33A8">80s</text>
             <text x="110" y="236" text-anchor="middle" font-family="Special Elite, monospace" font-size="11" letter-spacing="2" fill="#201A2B">BODICE FRONT · CUT 1 ON FOLD</text>
             <text x="152" y="160" font-family="Special Elite, monospace" font-size="10" letter-spacing="1" fill="#4F4660" transform="rotate(-90 152 160)">GRAINLINE</text>
           </svg>
-          <div class="piece-copy"><h3>[Decade heading]</h3><p class="ph">[Two lines on the 80s edit: shoulders, color, the whole mood.]</p></div>
+          <div class="piece-copy"><h3>[Decade heading]</h3><p>[Two lines on the 80s edit: shoulders, color, the whole mood.]</p></div>
         </a>
         <a class="piece" href="#shop">
-          <svg class="pin l" aria-hidden="true" style="--pinc:#E6B84A"><use href="#pushpin"/></svg>
+          <svg class="pinst l" aria-hidden="true" style="--pinc:#E6B84A"><use href="#pinst"/></svg>
+          <span class="chalk white chalkmark" aria-hidden="true">cut 2</span>
           <svg viewBox="0 0 220 260" aria-hidden="true">
             <path d="M30 86Q110-26 190 86l16 166H14z" fill="#FBF6EA" stroke="#201A2B" stroke-width="1.5" stroke-dasharray="5 4"/>
             <path d="M110 120v110M104 128l6-8 6 8M104 222l6 8 6-8" fill="none" stroke="#201A2B" stroke-width="1.5"/>
@@ -576,10 +704,11 @@ footer .script{color:var(--lilac)}
             <text x="110" y="244" text-anchor="middle" font-family="Special Elite, monospace" font-size="11" letter-spacing="2" fill="#201A2B">SLEEVE · CUT 2</text>
             <text x="150" y="170" font-family="Special Elite, monospace" font-size="10" letter-spacing="1" fill="#4F4660" transform="rotate(-90 150 170)">GRAINLINE</text>
           </svg>
-          <div class="piece-copy"><h3>[Decade heading]</h3><p class="ph">[Two lines on the 90s edit: slips, denim, minimal and loud at once.]</p></div>
+          <div class="piece-copy"><h3>[Decade heading]</h3><p>[Two lines on the 90s edit: slips, denim, minimal and loud at once.]</p></div>
         </a>
         <a class="piece" href="#shop">
-          <svg class="pin" aria-hidden="true" style="--pinc:#2F7D6B"><use href="#pushpin"/></svg>
+          <svg class="pinst" aria-hidden="true" style="--pinc:#5B33A8"><use href="#pinst"/></svg>
+          <span class="chalk white chalkmark" aria-hidden="true">cut 4</span>
           <svg viewBox="0 0 220 260" aria-hidden="true">
             <path d="M66 14h88l56 238H10z" fill="#FBF6EA" stroke="#201A2B" stroke-width="1.5" stroke-dasharray="5 4"/>
             <path d="M110 112v110M104 120l6-8 6 8M104 214l6 8 6-8" fill="none" stroke="#201A2B" stroke-width="1.5"/>
@@ -588,7 +717,7 @@ footer .script{color:var(--lilac)}
             <text x="110" y="240" text-anchor="middle" font-family="Special Elite, monospace" font-size="11" letter-spacing="2" fill="#201A2B">SKIRT PANEL · CUT 4</text>
             <text x="150" y="166" font-family="Special Elite, monospace" font-size="10" letter-spacing="1" fill="#4F4660" transform="rotate(-90 150 166)">GRAINLINE</text>
           </svg>
-          <div class="piece-copy"><h3>[Decade heading]</h3><p class="ph">[Two lines on the 00s edit: low rise, going-out tops, the archive era.]</p></div>
+          <div class="piece-copy"><h3>[Decade heading]</h3><p>[Two lines on the 00s edit: low rise, going-out tops, the archive era.]</p></div>
         </a>
       </div>
     </div>
@@ -598,23 +727,25 @@ footer .script{color:var(--lilac)}
     <div class="satin" aria-hidden="true"></div>
     <div class="leather" aria-hidden="true"></div>
     <div class="wrap">
-      <div class="book">
-        <div class="page l">
+      <div class="toile">
+        <svg class="pinst tl" aria-hidden="true" style="--pinc:#C96B72"><use href="#pinst"/></svg>
+        <svg class="pinst tr" aria-hidden="true" style="--pinc:#5B33A8"><use href="#pinst"/></svg>
+        <svg class="pinst bl" aria-hidden="true" style="--pinc:#E6B84A"><use href="#pinst"/></svg>
+        <svg class="pinst br" aria-hidden="true" style="--pinc:#2F7D6B"><use href="#pinst"/></svg>
+        <div class="toile-copy">
           <p class="press-eyebrow"><span class="scrawl">[she]</span> [press feature eyebrow]</p>
-          <h2 class="ransom">Behind the brand</h2>
-          <p class="script big">Meet [founder name], founder of Violet Vintage</p>
-          <p class="script">"[Placeholder quote, three or four sentences in the founder's own voice. Where the love of vintage started, the racks sifted through as a kid, the career that came before this.]"</p>
-        </div>
-        <div class="page r">
-          <p class="italic-lead">[A short italic lead line.]</p>
-          <p class="script">"[Second placeholder quote. What Violet Vintage is in one breath, the idea behind it, and the decades it sources from.]"</p>
-          <figure class="pol polaroid" style="margin:0;--r:0deg">
-            <div class="tape goldgrid"></div>
-            <div class="photo" style="--wash:var(--rose-wash)"><img src="assets/violet.png" alt=""></div>
-            <figcaption class="cap">[founder photo]</figcaption>
-          </figure>
+          <h2 class="stitched">Behind the brand</h2>
+          <p class="chalk big">Meet [founder name], founder of Violet Vintage</p>
+          <p class="quote">"[Placeholder quote, three or four sentences in the founder's own voice. Where the love of vintage started, the racks sifted through as a kid, the career that came before this.]"</p>
+          <p class="quote">"[Second placeholder quote. What Violet Vintage is in one breath, the idea behind it, and the decades it sources from.]"</p>
+          <div class="chalkbox" aria-label="Quick facts"><span>est. [year]</span><span>Detroit</span><span>80s to 00s</span></div>
           <a class="btn ghost" href="#brand" style="justify-self:start">Read the full story</a>
         </div>
+        <figure class="hoop" style="--w:300px;--wash:var(--rose-wash)">
+          <span class="clamp" aria-hidden="true"></span>
+          <div class="fabric"><img src="assets/violet.png" alt=""></div>
+          <figcaption class="chalk">[founder photo]</figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -623,70 +754,47 @@ footer .script{color:var(--lilac)}
     <div class="wrap">
       <div class="sec-head">
         <p class="eyebrow">Where to find us next</p>
-        <h2 class="ransom">Pop ups</h2>
-        <p class="note ph">[A line about the pop up circuit: markets, collabs, the occasional porch sale. Cards are pinned to the board as dates get confirmed.]</p>
+        <h2 class="stitched rose">Pop ups</h2>
+        <span class="run" aria-hidden="true"></span>
+        <p class="note ph">[A line about the pop up circuit: markets, collabs, the occasional porch sale. Tags go on the rail as dates get confirmed.]</p>
       </div>
-      <div class="cards">
-        <article class="postcard" style="--r:-1.5deg">
-          <svg class="pin" aria-hidden="true" style="--pinc:#B4463B"><use href="#pushpin"/></svg>
-          <div class="top">
-            <svg class="postmark" viewBox="0 0 160 90" aria-hidden="true">
-              <defs><path id="pm1" d="M44,45 m-30,0 a30,30 0 1,1 60,0 a30,30 0 1,1 -60,0"/></defs>
-              <circle cx="44" cy="45" r="32" fill="none" stroke="#201A2B" stroke-width="1.5" opacity=".7"/>
-              <circle cx="44" cy="45" r="22" fill="none" stroke="#201A2B" stroke-width="1" opacity=".7"/>
-              <text font-family="Cinzel, serif" font-size="8.5" letter-spacing="1.5" fill="#201A2B" opacity=".75"><textPath href="#pm1" textLength="182" lengthAdjust="spacingAndGlyphs">DETROIT · MICHIGAN · [DATE] ·</textPath></text>
-              <path d="M84 30q10-6 20 0t20 0 20 0M84 42q10-6 20 0t20 0 20 0M84 54q10-6 20 0t20 0 20 0M84 66q10-6 20 0t20 0 20 0" fill="none" stroke="#201A2B" stroke-width="1.4" opacity=".6"/>
-            </svg>
-            <div class="stamp"><div class="inner"><img src="assets/violet.png" alt=""><span>VV · DETROIT</span></div></div>
-          </div>
-          <p class="when">[Sat, month 00]</p>
-          <div class="where">
-            <span class="lab">Venue</span><span class="ph">[Venue or market name]</span>
-            <span class="lab">Address</span><span class="ph">[Street, neighborhood]</span>
-            <span class="lab">Hours</span><span class="ph">[00 to 00]</span>
-          </div>
-          <a class="btn" href="#popups">Add to calendar</a>
-        </article>
-        <article class="postcard" style="--r:1.2deg;--card:#F8EFE2">
-          <svg class="pin" aria-hidden="true" style="--pinc:#5B33A8"><use href="#pushpin"/></svg>
-          <div class="top">
-            <svg class="postmark" viewBox="0 0 160 90" aria-hidden="true">
-              <defs><path id="pm2" d="M44,45 m-30,0 a30,30 0 1,1 60,0 a30,30 0 1,1 -60,0"/></defs>
-              <circle cx="44" cy="45" r="32" fill="none" stroke="#201A2B" stroke-width="1.5" opacity=".7"/>
-              <circle cx="44" cy="45" r="22" fill="none" stroke="#201A2B" stroke-width="1" opacity=".7"/>
-              <text font-family="Cinzel, serif" font-size="8.5" letter-spacing="1.5" fill="#201A2B" opacity=".75"><textPath href="#pm2" textLength="182" lengthAdjust="spacingAndGlyphs">DETROIT · MICHIGAN · [DATE] ·</textPath></text>
-              <path d="M84 30q10-6 20 0t20 0 20 0M84 42q10-6 20 0t20 0 20 0M84 54q10-6 20 0t20 0 20 0M84 66q10-6 20 0t20 0 20 0" fill="none" stroke="#201A2B" stroke-width="1.4" opacity=".6"/>
-            </svg>
-            <div class="stamp"><div class="inner" style="background:linear-gradient(160deg,var(--teal-wash),#fff6e0)"><img src="assets/violet.png" alt=""><span>VV · DETROIT</span></div></div>
-          </div>
-          <p class="when">[Sun, month 00]</p>
-          <div class="where">
-            <span class="lab">Venue</span><span class="ph">[Venue or market name]</span>
-            <span class="lab">Address</span><span class="ph">[Street, neighborhood]</span>
-            <span class="lab">Hours</span><span class="ph">[00 to 00]</span>
-          </div>
-          <a class="btn" href="#popups">Add to calendar</a>
-        </article>
-        <article class="postcard" style="--r:-0.6deg;--card:#FBF4E8">
-          <svg class="pin" aria-hidden="true" style="--pinc:#E6B84A"><use href="#pushpin"/></svg>
-          <div class="top">
-            <svg class="postmark" viewBox="0 0 160 90" aria-hidden="true">
-              <defs><path id="pm3" d="M44,45 m-30,0 a30,30 0 1,1 60,0 a30,30 0 1,1 -60,0"/></defs>
-              <circle cx="44" cy="45" r="32" fill="none" stroke="#201A2B" stroke-width="1.5" opacity=".7"/>
-              <circle cx="44" cy="45" r="22" fill="none" stroke="#201A2B" stroke-width="1" opacity=".7"/>
-              <text font-family="Cinzel, serif" font-size="8.5" letter-spacing="1.5" fill="#201A2B" opacity=".75"><textPath href="#pm3" textLength="182" lengthAdjust="spacingAndGlyphs">DETROIT · MICHIGAN · [DATE] ·</textPath></text>
-              <path d="M84 30q10-6 20 0t20 0 20 0M84 42q10-6 20 0t20 0 20 0M84 54q10-6 20 0t20 0 20 0M84 66q10-6 20 0t20 0 20 0" fill="none" stroke="#201A2B" stroke-width="1.4" opacity=".6"/>
-            </svg>
-            <div class="stamp"><div class="inner" style="background:linear-gradient(160deg,#F6E4B0,#fff0e6)"><img src="assets/violet.png" alt=""><span>VV · DETROIT</span></div></div>
-          </div>
-          <p class="when">[Date to be announced]</p>
-          <div class="where">
-            <span class="lab">Venue</span><span class="ph">[Venue or market name]</span>
-            <span class="lab">Address</span><span class="ph">[Street, neighborhood]</span>
-            <span class="lab">Hours</span><span class="ph">[00 to 00]</span>
-          </div>
-          <a class="btn alt" href="#signup">Get the date first</a>
-        </article>
+      <div class="tagrail">
+        <div class="rod"></div>
+        <div class="tags">
+          <article class="swingtag" style="--len:56px;--dl:0s">
+            <div class="tagbody">
+              <p class="stampmark when">[Sat, month 00]</p>
+              <div class="where">
+                <span class="lab">Venue</span><span class="ph">[Venue or market name]</span>
+                <span class="lab">Address</span><span class="ph">[Street, neighborhood]</span>
+                <span class="lab">Hours</span><span class="ph">[00 to 00]</span>
+              </div>
+              <a class="btn" href="#popups">Add to calendar</a>
+            </div>
+          </article>
+          <article class="swingtag" style="--len:84px;--dl:-2.5s">
+            <div class="tagbody">
+              <p class="stampmark when">[Sun, month 00]</p>
+              <div class="where">
+                <span class="lab">Venue</span><span class="ph">[Venue or market name]</span>
+                <span class="lab">Address</span><span class="ph">[Street, neighborhood]</span>
+                <span class="lab">Hours</span><span class="ph">[00 to 00]</span>
+              </div>
+              <a class="btn" href="#popups">Add to calendar</a>
+            </div>
+          </article>
+          <article class="swingtag" style="--len:68px;--dl:-4.5s">
+            <div class="tagbody">
+              <p class="stampmark when">[Date to be announced]</p>
+              <div class="where">
+                <span class="lab">Venue</span><span class="ph">[Venue or market name]</span>
+                <span class="lab">Address</span><span class="ph">[Street, neighborhood]</span>
+                <span class="lab">Hours</span><span class="ph">[00 to 00]</span>
+              </div>
+              <a class="btn alt" href="#signup">Get the date first</a>
+            </div>
+          </article>
+        </div>
       </div>
     </div>
   </section>
@@ -697,7 +805,8 @@ footer .script{color:var(--lilac)}
     <div class="wrap" style="position:relative;z-index:1">
       <div class="sec-head">
         <p class="eyebrow">How a piece gets to you</p>
-        <h2 class="ransom">The process</h2>
+        <h2 class="stitched gold">The process</h2>
+        <span class="run" aria-hidden="true"></span>
         <p class="note ph">[One line on the care that goes into every piece before it is listed. Four steps, four buttons, one thread.]</p>
       </div>
       <div class="steps">
@@ -726,7 +835,7 @@ footer .script{color:var(--lilac)}
           <svg class="button" aria-hidden="true" style="--bc:#2F7D6B"><use href="#sewbutton"/></svg>
           <span class="num">STEP 04</span>
           <h3>[Styled and listed]</h3>
-          <p class="ph">[Photographed, measured, written up honestly, then hung on the rack above.]</p>
+          <p class="ph">[Photographed, measured, written up honestly, then clipped to the rail above.]</p>
         </div>
       </div>
     </div>
@@ -736,17 +845,18 @@ footer .script{color:var(--lilac)}
     <div class="wrap" style="text-align:center">
       <div class="sec-head" style="margin-inline:auto;justify-items:center;text-align:center">
         <p class="eyebrow">Journal and the feed</p>
-        <h2 class="ransom">Lately</h2>
-        <p class="note ph">[A line inviting people over to the feed, or a short blurb about the journal if there will be one.]</p>
+        <h2 class="stitched">Lately</h2>
+        <span class="run" aria-hidden="true"></span>
+        <p class="note ph">[A line inviting people over to the feed, or a short blurb about the journal if there will be one. Every photo gets its own hoop.]</p>
       </div>
-      <div class="pols">
-        <figure class="pol" style="margin:0;--r:-5deg;--wash:var(--lilac-wash)"><div class="tape stripe"></div><div class="photo"><img src="assets/violet.png" alt=""></div><figcaption class="cap">[caption]</figcaption></figure>
-        <figure class="pol" style="margin:0;--r:3deg;--wash:var(--teal-wash)"><div class="tape goldgrid"></div><div class="photo"><img src="assets/violet.png" alt=""></div><figcaption class="cap">[caption]</figcaption></figure>
-        <figure class="pol" style="margin:0;--r:-2deg;--wash:#F6E4B0"><div class="tape lilacdot"></div><div class="photo"><img src="assets/violet.png" alt=""></div><figcaption class="cap">[caption]</figcaption></figure>
-        <figure class="pol" style="margin:0;--r:4deg;--wash:#DCE3EE"><div class="tape tealplain"></div><div class="photo"><img src="assets/violet.png" alt=""></div><figcaption class="cap">[caption]</figcaption></figure>
-        <figure class="pol" style="margin:0;--r:-3deg;--wash:#FBE48A"><div class="tape stripe"></div><div class="photo"><img src="assets/violet.png" alt=""></div><figcaption class="cap">[caption]</figcaption></figure>
+      <div class="hoops">
+        <figure class="hoop" style="--w:230px;--r:-4deg;--wash:var(--lilac-wash)"><span class="clamp" aria-hidden="true"></span><div class="fabric"><img src="assets/violet.png" alt=""></div><figcaption class="chalk">[caption]</figcaption></figure>
+        <figure class="hoop" style="--w:190px;--r:3deg;--wash:var(--teal-wash)"><span class="clamp" aria-hidden="true"></span><div class="fabric"><img src="assets/violet.png" alt=""></div><figcaption class="chalk">[caption]</figcaption></figure>
+        <figure class="hoop" style="--w:260px;--r:-2deg;--wash:#F6E4B0"><span class="clamp" aria-hidden="true"></span><div class="fabric"><img src="assets/violet.png" alt=""></div><figcaption class="chalk">[caption]</figcaption></figure>
+        <figure class="hoop" style="--w:200px;--r:4deg;--wash:#DCE3EE"><span class="clamp" aria-hidden="true"></span><div class="fabric"><img src="assets/violet.png" alt=""></div><figcaption class="chalk">[caption]</figcaption></figure>
+        <figure class="hoop" style="--w:220px;--r:-3deg;--wash:var(--rose-wash)"><span class="clamp" aria-hidden="true"></span><div class="fabric"><img src="assets/violet.png" alt=""></div><figcaption class="chalk">[caption]</figcaption></figure>
       </div>
-      <a class="handle" href="#feed">@[instagram handle]</a>
+      <a class="woven dark handle" href="#feed">@[instagram handle]</a>
     </div>
   </section>
 
@@ -783,11 +893,18 @@ footer .script{color:var(--lilac)}
       <img src="assets/logo-circle.png" alt="Violet Vintage">
       <p class="script">[one line sign-off, handwritten]</p>
       <p style="font-family:var(--font-caps);font-size:.8rem;letter-spacing:.2em;text-transform:uppercase">Detroit, Michigan</p>
+      <div class="palette" aria-hidden="true">
+        <svg style="--sc:#5B33A8"><use href="#spool"/></svg>
+        <svg style="--sc:#E6B84A"><use href="#spool"/></svg>
+        <svg style="--sc:#C96B72"><use href="#spool"/></svg>
+        <svg style="--sc:#2F7D6B"><use href="#spool"/></svg>
+        <svg style="--sc:#3A5B8B"><use href="#spool"/></svg>
+      </div>
     </div>
     <div><h4>Shop</h4><ul><li><a href="#shop">New arrivals</a></li><li><a href="#eras">By era</a></li><li><a href="#shop">[Category]</a></li><li><a href="#shop">[Category]</a></li></ul></div>
     <div><h4>About</h4><ul><li><a href="#brand">Behind the brand</a></li><li><a href="#popups">Pop ups</a></li><li><a href="#feed">Journal</a></li><li><a href="#feed">Instagram</a></li></ul></div>
     <div><h4>Help</h4><ul><li><a href="#top">[Shipping]</a></li><li><a href="#top">[Returns]</a></li><li><a href="#top">[Sizing and measurements]</a></li><li><a href="#top">[Contact]</a></li></ul></div>
-    <div class="fine"><span>© [year] Violet Vintage</span><span>Draft 1 · placeholder copy in brackets</span></div>
+    <div class="fine"><span>© [year] Violet Vintage</span><span>Draft 2 · the studio · placeholder copy in brackets</span></div>
   </div>
 </footer>
 
@@ -830,33 +947,8 @@ footer .script{color:var(--lilac)}
 
 <script>
 (function(){
-  function hash(str){let h=2166136261;for(let i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619)>>>0;}return h;}
-  function ransom(el){
-    const text=el.textContent.replace(/\s+/g,' ').trim();
-    el.textContent='';
-    el.setAttribute('aria-label',text);
-    const words=text.split(' ');
-    let i=0;
-    words.forEach((w,wi)=>{
-      const ws=document.createElement('span');ws.className='rw';ws.setAttribute('aria-hidden','true');
-      for(const ch of w){
-        const h=hash(text+':'+i);
-        const s=document.createElement('span');
-        s.className='rl f'+(h%6)+' p'+((h>>4)%8);
-        s.style.setProperty('--r',(((h>>9)%13)-6)+'deg');
-        s.style.setProperty('--y',(((h>>14)%5)-2)+'px');
-        s.textContent=ch;ws.appendChild(s);i++;
-      }
-      el.appendChild(ws);
-      if(wi<words.length-1){const sp=document.createElement('span');sp.className='rs';sp.setAttribute('aria-hidden','true');sp.textContent=' ';el.appendChild(sp);}
-    });
-  }
-  document.querySelectorAll('.ransom').forEach(ransom);
-
-  const form=document.getElementById('signup-form');
+  var form=document.getElementById('signup-form');
   if(form){form.addEventListener('submit',function(e){e.preventDefault();form.hidden=true;document.getElementById('thanks').hidden=false;});}
-  const close=document.getElementById('legend-close');
-  if(close){close.addEventListener('click',function(){document.getElementById('legend').hidden=true;});}
 })();
 </script>
 
